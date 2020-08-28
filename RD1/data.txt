@@ -1,0 +1,38 @@
+CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5    驗證碼
+
+
+當前天氣
+url=https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&sort=time
+
+
+當前天氣一個縣市
+url =https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&locationName=%E8%87%BA%E4%B8%AD%E5%B8%82&sort=time
+
+
+
+
+未來兩天
+url= https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&elementName=
+
+
+未來一週
+url = https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON
+
+
+過去24小時雨量
+url = https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=https%3A%2F%2Fopendata.cwb.gov.tw%2Fapi%2Fv1%2Frest%2Fdatastore%2FF-D0047-091%3FAuthorization%3DCWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5%26format%3DJSON&format=JSON&elementName=HOUR_24
+
+
+過去１小時
+url = https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&elementName=NOW
+
+
+
+<?php
+    $url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON";  // Your json data url
+    $data = file_get_contents($url);  // PHP get data from url
+    $json = json_decode($data, true);  // Decode json data
+    // 處理取得的 json 資料
+    var_dump($json['records']['location'][0]['locationName']);
+    
+?>

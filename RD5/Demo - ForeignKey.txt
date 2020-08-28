@@ -1,0 +1,68 @@
+use test;
+
+drop table data_head;
+drop table data_body;
+
+create table data_head
+(
+  headId int primary key,
+  data int
+);
+
+create table data_body
+(
+  bodyId int primary key,
+  headId int,
+  data int
+);
+
+insert into data_head values (1, 100), (2, 200);
+insert into data_body values 
+  (1, 1, 111), (2, 1, 222), (3, 2, 333);
+  
+select * from data_head;
+select * from data_body;
+
+-- ?! 
+insert into data_body values (4, 3, 44);
+select * from data_body;
+  
+delete from data_body where bodyId = 4;
+select * from data_head;
+select * from data_body;
+  
+alter table data_body
+  add constraint fk_data_head_body
+  foreign key (headId) references data_head(headId);
+  
+insert into data_body values (4, 3, 44);
+select * from data_body;
+
+
+select * from data_head;
+select * from data_body;
+
+update data_head set headId = 100 where headId = 1;
+
+alter table data_body 
+  drop foreign key fk_data_head_body;
+
+alter table data_body
+  add constraint fk_data_head_body
+  foreign key (headId) references data_head(headId)
+  on update cascade
+  on delete cascade;
+
+
+
+update data_head set headId = 100 where headId = 1;
+select * from data_head;
+select * from data_body;
+
+delete from data_head where headId = 100;
+select * from data_head;
+select * from data_body;
+  
+  
+
+

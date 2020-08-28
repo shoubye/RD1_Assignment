@@ -1,0 +1,33 @@
+
+
+create table member
+(
+    memberId int auto_increment primary key,
+    name varchar(20),
+    account varchar(20),
+    password int,
+    balance varchar(20) default '1000'
+);
+
+create table transaction
+(
+    transaction int auto_increment primary key,
+    account varchar(20),
+    transtype varchar(20),
+    trade int,
+    transdate datetime
+    
+)
+
+
+
+insert into member (Name,account,password) 
+values ('Jeremy','Lin', 2),('Jeremy','chan', 4),('Jeremy','wang', 6);
+
+
+foreign key (account) references member(account);
+
+
+
+
+
