@@ -1,0 +1,20 @@
+     
+
+create table weatherweek
+(
+    datasetDescription varchar(20) default "臺灣各縣市鄉鎮未來1週逐12小時天氣預報",
+    cityname varchar(20),
+    startTime datetime,
+    endTime datetime,
+    value varchar(50)
+)
+
+
+create table weathertwo
+(
+    datasetDescription varchar(20) default "臺灣各縣市鄉鎮未來3天(72小時)逐3小時天氣預報",
+    cityname varchar(20),
+    startTime datetime,
+    endTime datetime,
+    value varchar(50)
+)
