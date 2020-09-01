@@ -3,65 +3,6 @@
    session_start();
 
    
-   
-  
-    // $url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&locationName=".urlencode($_POST["city"])."&sort=time";
-    // // $url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&sort=time";
-    // $data = file_get_contents($url);  // PHP get data from url
-    // $json = json_decode($data, true);  // Decode json data    
-    // // var_dump($json);
-    // // var_dump($json['records']['location'][1]['locationName']);// 查詢資料
-
-    // $location = $json["records"]["location"];
-    // $datasetDescription = $json["records"]["datasetDescription"];
-    // $locationName = $json["records"]["location"][0]["locationName"];
-    // $elementName = $json["records"]["location"][0]["weatherElement"][0]["elementName"];
-    // $startTime = $json["records"]["location"][0]["weatherElement"][0]["time"][0]["startTime"];
-    // $endTime = $json["records"]["location"][0]["weatherElement"][0]["time"][0]["endTime"];
-    // $parameterName = $json["records"]["location"][0]["weatherElement"][0]["time"][0]["parameter"]["parameterName"];
-    // $parameterValue = $json["records"]["location"][0]["weatherElement"][0]["time"][0]["parameter"]["parameterValue"];
-  
-
-        // var_dump($datasetDescription);
-        // var_dump($locationName);
-        // var_dump($elementName);
-        // var_dump($startTime);
-        // var_dump($endTime);
-        // var_dump($parameterName);
-        // var_dump($parameterValue);
-
-
-        // echo $datasetDescription;
-        // echo $locationName;
-        // echo $elementName;
-        // echo $startTime;
-        // echo $endTime;
-        // echo $parameterName;
-        // echo $parameterValue;
-
-        // foreach($location as $a){
-        //     echo $name."</br>";
-        // }
-
-
-
-        // if(isset($_POST["okbutton"]))
-        // {
-            //縣市
-            // $_SESSION["123"] = $_POST["city"];
-                  
-            // $link = @mysqli_connect("localhost", "root", "root", "meteorological", 8889) or die(mysqli_connect_error());
-            // $result = mysqli_query($link, "set names utf8");  
-           
-            // //執行SQL敘述      
-            // $Text1 =<<<SqlQuery
-            // INSERT INTO current (datasetDescription, locationName, elementName, startTime, endTime, parameterName, parameterValue) VALUES 
-            // ('$datasetDescription', '$locationName', '$elementName', '$startTime', '$endTime', '$parameterName', '$parameterValue');
-            // SqlQuery;      
-            // $result = mysqli_query ($link, $Text1);
-            // }
-        // }
-
 ?>
 
 
@@ -85,8 +26,7 @@
             
             <label for="select" class="custom-control" >請選擇縣/市：</label> 
             <div class="custom-control-inline">            
-            <select id="select" name="city" >
-                <option></option>
+            <select id="select" name="city" > 
                 <option value="基隆市">基隆市</option>
                 <option value="臺北市">臺北市</option>
                 <option value="新北市">新北市</option>
@@ -112,7 +52,9 @@
             </select>
             </div>
 
-
+        <div class="custom-control">
+            <input name="okbutton3" type="submit" class="btn btn-outline-info btn-sm" value ="當前天氣"/>
+        </div>
             
         <div class="custom-control">
             <input name="okbutton1" type="submit" class="btn btn-outline-info btn-sm" value ="未來２天天氣："/>
@@ -123,9 +65,23 @@
             
         </div>
 
+
+
+        <label for="select" class="custom-control" >積雨量查詢：</label> 
+            <div class="custom-control-inline">            
+            <select id="select" name="rain" >
+   
+                <option value="RAIN">過去1小時</option>
+                <option value="HOUR_24">過去24小時</option>
+                
+            </select>
+            </div>
+
         <div class="custom-control">
-            <input name="okbutton3" type="submit" class="btn btn-outline-info btn-sm" value ="當前天氣"/>
+            <input name="okbutton4" type="submit" class="btn btn-outline-success btn-sm" value ="查詢"/>
         </div>
+
+           
 
         <hr size="8" align="center" noshade width="100%" color="A702CF">
 
@@ -137,8 +93,11 @@
              else if (isset($_POST["okbutton2"]))
              require_once("weather7.php");
 
-             else
+             else if(isset($_POST["okbutton3"]))
              require_once("current.php");
+
+             else if(isset($_POST["okbutton4"]))
+             require_once("rain.php");
         ?>   
         </div>
 

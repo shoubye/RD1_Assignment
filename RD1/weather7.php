@@ -9,6 +9,7 @@ $_SESSION["123"] = $_POST["city"];
 
 }
 
+
 //未來一週天氣
 $url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&locationName=".urlencode($_POST["city"])."&elementName=WeatherDescription&sort=time";
 $data = file_get_contents($url);  // PHP get data from url
@@ -24,14 +25,6 @@ $json = json_decode($data, true);  // Decode json data
         // $Value = $json["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][0]["elementValue"][0]["value"];//降雨率
    
 
-        // var_dump($datasetDescription);
-        // var_dump($locationname);
-        // var_dump($startime);
-        // var_dump($endtime );
-        // var_dump($description);
-        // var_dump($Value);
-        
-        // echo count($time);
         $city = $_POST["city"];
 
 

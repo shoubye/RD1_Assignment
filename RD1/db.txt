@@ -10,11 +10,37 @@ create table weatherweek
 )
 
 
-create table weathertwo
+create table current
 (
-    datasetDescription varchar(20) default "臺灣各縣市鄉鎮未來3天(72小時)逐3小時天氣預報",
+    datasetDescription varchar(20) default "二十四小時天氣預報",
     cityname varchar(20),
+    elementname varchar(50),
     startTime datetime,
     endTime datetime,
-    value varchar(50)
+    parametername varchar(20)
 )
+
+
+
+create table rain01
+(
+    datasetDescription varchar(20) default "過去１小時積雨量",
+    cityname varchar(20),
+    locationname varchar(50),
+    town varchar(20),
+    obsTime datetime,
+    hour01 varchar(20),
+)
+
+
+create table rain24
+(
+    datasetDescription varchar(20) default "過去24小時積雨量",
+    cityname varchar(20),
+    locationname varchar(50),
+    town varchar(20),
+    obsTime datetime,
+    hour24 varchar(20)
+)
+
+cityname , locationname, town ,obsTime , hour01 ,hour24

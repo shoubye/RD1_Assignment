@@ -9,8 +9,6 @@ url=https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=
 url =https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&locationName=%E8%87%BA%E4%B8%AD%E5%B8%82&sort=time
 
 
-
-
 未來兩天
 url= https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&elementName=
 

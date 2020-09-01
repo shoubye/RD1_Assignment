@@ -53,49 +53,23 @@ $json = json_decode($data, true);  // Decode json data
             for($x = 0 ; $x <count($time) ; $x++)
             {
                 
-                echo $starttime = $json["records"]["location"][0]["weatherElement"][0]["time"][$x]["startTime"];
+                echo $starttime = $json["records"]["location"][0]["weatherElement"][$i]["time"][$x]["startTime"];
                 echo "<br>";
-                echo $endtime = $json["records"]["location"][0]["weatherElement"][0]["time"][$x]["endTime"];
+                echo $endtime = $json["records"]["location"][0]["weatherElement"][$i]["time"][$x]["endTime"];
                 echo "<br>";    
-                echo $parametername = $json["records"]["location"][0]["weatherElement"][0]["time"][$x]["parameter"]["parameterName"];
-                // switch($elementname)
-                // {
-                //     case 'Wx':        
-                //         echo $parametername = $json["records"]["location"][0]["weatherElement"][0]["time"][0]["parameter"]["parameterName"];
-                //     break;
-    
-                //     case 'PoP':  
-                //         echo $parametername = $json["records"]["location"][0]["weatherElement"][0]["time"][1]["parameter"]["parameterName"];
-                //     break;
-                    
-                //     case 'MinT':  
-                //         echo $parametername = $json["records"]["location"][0]["weatherElement"][0]["time"][2]["parameter"]["parameterName"];
-                //     break;
-    
-                //     case 'CI':  
-                //         echo $parametername = $json["records"]["location"][0]["weatherElement"][0]["time"][3]["parameter"]["parameterName"];
-                //     break;    
-    
-                //     case 'MaxT': 
-                //         echo $parametername = $json["records"]["location"][0]["weatherElement"][0]["time"][4]["parameter"]["parameterName"];
-                //     break; 
-    
-                // }            
-    
+                echo $parametername = $json["records"]["location"][0]["weatherElement"][$i]["time"][$x]["parameter"]["parameterName"];                  
                 echo "<br>";
                 
-                    // $Text1 =<<<SqlQuery
-                    // INSERT INTO weathertwo ( cityname , startTime, endTime , elementname, parametername) VALUES 
-                    // ('$city ' ,'$startime' , '$endtime' , '$elementname', '$parametername');
-                    // SqlQuery;      
-                    // $result = mysqli_query ($link, $Text1); 
+
+                    $Text2 =<<<SqlQuery
+                    INSERT INTO current ( cityname , elementname, startTime, endTime ,parametername) VALUES 
+                    ('$city ' ,'$elementname','$starttime' , '$endtime' ,  '$parametername');
+                    SqlQuery;      
+                    $result = mysqli_query ($link, $Text2); 
+
                 
-            }
-
-        
-
+            }      
 
         }
-
 
 ?>
