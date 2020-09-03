@@ -24,14 +24,6 @@ $json = json_decode($data, true);  // Decode json data
         // $Value = $json["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][0]["elementValue"][0]["value"];//降雨率
    
 
-        // var_dump($datasetDescription);
-        // var_dump($locationname);
-        // var_dump($startime);
-        // var_dump($endtime );
-        // var_dump($description);
-        // var_dump($Value);
-        
-        // echo count($time);
         $city = $_POST["city"];
 
 
@@ -42,6 +34,7 @@ $json = json_decode($data, true);  // Decode json data
         {
           
             echo $city ; 
+            
             echo "<br>";            
             echo $startime = $json["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][$i]["startTime"];
             echo "<br>";

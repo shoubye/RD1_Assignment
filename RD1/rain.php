@@ -7,11 +7,9 @@ if(isset($_POST["okbutton4"]))
 {
 $cityname = $_POST["city"];
 }
-// $city = urldecode($_POST["city"]);
-// $time = $_POST["time"];
+
 
 //積雨量
-// $url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&locationName=".urldecode($_POST["city"])."&elementName=".$_POST["time"]."&parameterName=TOWN";
 $url ="https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&elementName=RAIN,HOUR_24&parameterName=CITY,TOWN";
 $data = file_get_contents($url);  // PHP get data from url
 $json = json_decode($data, true);  // Decode json data  

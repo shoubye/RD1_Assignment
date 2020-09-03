@@ -25,23 +25,14 @@ $json = json_decode($data, true);  // Decode json data
         $parametername = $json["records"]["location"][0]["weatherElement"][0]["time"][0]["parameter"]["parameterName"];
         $parametervalue = $json["records"]["location"][0]["weatherElement"][0]["time"][0]["parameter"]["parameterValue"];
         
-        // var_dump($elementname);
-        // var_dump($starttime);
-        // var_dump($endtime );
-        // var_dump($parameter);
-        // var_dump($parametername);
-        // var_dump($parametervalue);
-        
-        // echo count($time);
+   
 
         $city = $_POST["city"];
-
 
         $link = @mysqli_connect("localhost", "root", "root", "meteorological", 8889) or die(mysqli_connect_error());
         $result = mysqli_query($link, "set names utf8");    
 
 
-        // echo count($time);
         for($i = 0 ; $i <count($weatherElement) ; $i++)
         {
             echo "<br>";
