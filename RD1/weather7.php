@@ -9,7 +9,6 @@ $_SESSION["123"] = $_POST["city"];
 
 }
 
-
 //未來一週天氣
 $url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-0EF10C78-E76B-49E3-BD74-05B21416C3F5&format=JSON&locationName=".urlencode($_POST["city"])."&elementName=WeatherDescription&sort=time";
 $data = file_get_contents($url);  // PHP get data from url
@@ -33,7 +32,7 @@ $json = json_decode($data, true);  // Decode json data
 
         for($i = 0 ; $i <count($time) ; $i++)
         {
-          
+            echo "<br>"; 
             echo $city ; 
             echo "<br>";            
             echo $startime = $json["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][$i]["startTime"];

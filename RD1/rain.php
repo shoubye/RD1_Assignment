@@ -68,6 +68,7 @@ $json = json_decode($data, true);  // Decode json data
                 break;
             }
         }
+        
 
         // 資料存進資料庫
         // for($i = 0 ; $i <count($location) ; $i++)

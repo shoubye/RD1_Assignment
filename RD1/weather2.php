@@ -26,15 +26,13 @@ $json = json_decode($data, true);  // Decode json data
 
         $city = $_POST["city"];
 
-
         $link = @mysqli_connect("localhost", "root", "root", "meteorological", 8889) or die(mysqli_connect_error());
         $result = mysqli_query($link, "set names utf8");    
 
         for($i = 0 ; $i <count($time) ; $i++)
         {
-          
-            echo $city ; 
-            
+            echo "<br>"; 
+            echo $city ;
             echo "<br>";            
             echo $startime = $json["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][$i]["startTime"];
             echo "<br>";
@@ -43,6 +41,7 @@ $json = json_decode($data, true);  // Decode json data
             echo $value = $json["records"]["locations"][0]["location"][0]["weatherElement"][0]["time"][$i]["elementValue"][0]["value"];
             echo "<br>";
         
+            
             $Text1 =<<<SqlQuery
             INSERT INTO weathertwo ( cityname , startTime, endTime ,value) VALUES 
             ('$city ' ,'$startime' , '$endtime' , '$value');
@@ -51,5 +50,5 @@ $json = json_decode($data, true);  // Decode json data
 
         }
 
-
 ?>
+

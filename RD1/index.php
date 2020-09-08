@@ -1,7 +1,10 @@
 <?php
 
    session_start();
-
+   if(isset($_POST["okbutton1"]) || $_POST["okbutton2"] || $_POST["okbutton3"] ||$_POST["okbutton4"])
+   {
+    $city = $_POST["city"];
+    }   
 ?>
 
 
@@ -48,30 +51,37 @@
                 <option value="連江縣">連江縣</option>
             </select>
            
-        <div class="custom-control">
-            <input name="okbutton3" type="submit" class="btn btn-outline-info btn-sm" value ="當前天氣"/>  
-            <input name="okbutton1" type="submit" class="btn btn-outline-info btn-sm" value ="未來２天天氣："/>
-            <input name="okbutton2" type="submit" class="btn btn-outline-info btn-sm" value ="未來一週天氣"/>           
+            <div class="custom-control">
+                <input name="okbutton3" type="submit" class="btn btn-outline-info btn-sm" value ="當前天氣" onclick="window.location='product1.php'"/>  
+                <input name="okbutton1" type="submit" class="btn btn-outline-info btn-sm" value ="未來２天天氣："/>
+                <input name="okbutton2" type="submit" class="btn btn-outline-info btn-sm" value ="未來一週天氣"/>           
+            </div>
+
+
+
+            <label for="select" class="custom-control" >積雨量查詢：</label>                        
+                <select id="select" name="rain" >   
+                    <option value="RAIN">過去1小時</option>
+                    <option value="HOUR_24">過去24小時</option>                
+                </select>
+
+
+            <div class="custom-control">
+                <input name="okbutton4" type="submit" class="btn btn-outline-success btn-sm" value ="查詢"/>  
+            </div > 
+
+      
+            
         </div>
-
-
-
-        <label for="select" class="custom-control" >積雨量查詢：</label>                        
-            <select id="select" name="rain" >   
-                <option value="RAIN">過去1小時</option>
-                <option value="HOUR_24">過去24小時</option>                
-            </select>
-
-
-        <div class="custom-control">
-             <input name="okbutton4" type="submit" class="btn btn-outline-success btn-sm" value ="查詢"/>    
-        </div>     
-
+        
         <hr size="8" align="center" noshade width="100%" color="A702CF">
 
-        
+  
+
         <div class="custom-control">
+        <img id= <?php echo $_POST["city"]?> src ="./img/<?php echo $_POST["city"]?>.jpg" width = "10%"  height = "10%">
         <?php
+            
             if(isset($_POST["okbutton1"]))
              require_once("weather2.php");
             
