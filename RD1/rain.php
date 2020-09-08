@@ -39,11 +39,13 @@ $json = json_decode($data, true);  // Decode json data
                     SqlQuery;        
                     $result = mysqli_query ($link, $Text3); 
                     $row = mysqli_fetch_assoc($result);             
-                    
+                    echo "<br>"; 
                     while($row = mysqli_fetch_assoc($result))
                     {                      
                         foreach($row as $x)
                         {
+                         
+                           
                             echo $x;
                             echo "<br>";                            
                         }                                  
@@ -57,10 +59,12 @@ $json = json_decode($data, true);  // Decode json data
                     SELECT * FROM rain24 where cityname = '$cityname' ;
                     SqlQuery;        
                     $result = mysqli_query ($link, $Text3); 
+                    echo "<br>";
                     while($row = mysqli_fetch_assoc($result))
                     {
                         foreach($row as $x)
                         {
+                             
                             echo $x;
                             echo "<br>";                           
                         }                                               
